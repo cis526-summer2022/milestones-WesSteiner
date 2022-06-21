@@ -1,4 +1,4 @@
-.card-container > div {
+#view > div {
     margin: 1rem;
     padding: 1rem;
     border: 1px solid gray;
@@ -6,33 +6,33 @@
     box-shadow: 5px 5px 5px darkgray;
 }
 
-.card-container > div > p {
+#view > div > p {
   text-align: center;
 }
 
-.card-container img {
+#view img {
   width: 100%;
 }
 
-.card-container {
+#view {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
 
 @media (max-width: 1050px) {
-  .card-container {
+  #view {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (max-width: 850px) {
-  .card-container {
+  #view {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 550px) {
-  .card-container {
+  #view {
     grid-template-columns: repeat(1, 1fr);
   }
 }
