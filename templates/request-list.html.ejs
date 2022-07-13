@@ -1,0 +1,11 @@
+<nav>
+  <h2>Requests</h2>
+  <ul>
+  <% requests.forEach((request) => { %>
+    <li>
+      <a href="/requests/<%= request.id %>">
+        <%= request.request %>
+      </a>
+  <% }); %>
+  </ul>
+</nav>

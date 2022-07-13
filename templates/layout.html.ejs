@@ -1,0 +1,22 @@
+<!doctype HTML>
+<html>
+  <head>
+    <title>Box At <%= box.name %></title>
+    <link type="text/css" rel="stylesheet" href="/site.css">
+  </head>
+  <body>
+    <h1>Box At <% name %></h1>
+    <div class="content">
+      <p><% lat %> "," <% lng %></p>       
+      <img src="http://www.mapquestapi.com/staticmap/v4/getmap?key=YiIbGrPqh1Gq6pmFKTopo6uTTTus3bON&size=600,400&zoom=16&center="+<% lat %>+","+<% lng %>+"&pois=poi-blue,"+<% lat %>+","+<% lng %>+",0,0" alt= "Awe crud">
+    </div>
+    <h2>Make A Request</h2>
+    <form method="POST" action="/requests">
+  
+      <label>Type it here.</label>
+      <input type="text" name="request" required/>
+  
+      <input type="submit" value="Post"/>
+    </form>
+  </body>
+</html>

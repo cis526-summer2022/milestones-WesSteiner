@@ -5,7 +5,8 @@ function displayCards(data){
     var display = document.getElementById("view");
     var lat = json_data.lat;
     var lng = json_data.lng;
-    var map = document.createElement("img")
+    var map = document.createElement("img");
+    var id = json_data.id;
     map.src = "http://www.mapquestapi.com/staticmap/v4/getmap?key=YiIbGrPqh1Gq6pmFKTopo6uTTTus3bON&size=600,400&zoom=16&center="+lat+","+lng+"&pois=poi-blue,"+lat+","+lng+",0,0";
     var name = document.createElement("p"); 
     name.textContent = json_data.name;
@@ -13,6 +14,12 @@ function displayCards(data){
     display.appendChild(iDiv);
     iDiv.appendChild(map);
     iDiv.appendChild(name);
+    var btn = document.createElement("button");
+    btn.innerHTML = "Requests";
+    btn.onclick = function () {
+      window.location.href = "/box-locations/"+id;
+    };
+    iDiv.appendChild(btn);
   } 
 }
 
@@ -22,7 +29,7 @@ function useXHR(){
       displayCards(JSON.parse(xhr.responseText));
   });
 
-  const url = "./box-locations.json";
+  const url = "/box-locations";
   xhr.open("GET", url);
   xhr.send();
 }

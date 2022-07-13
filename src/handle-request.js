@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const serveFile = require('./serve-file');
 const listDirectory = require('./list-directory.js');
+const serveHomepage = require('./endpoints/serve-homepage');
 
 /** @function handleRequest
  * Provides a function for handling HTTP requests 
@@ -9,7 +10,7 @@ const listDirectory = require('./list-directory.js');
  * @param {http.serverResponse} res - the response object
  */
 function handleRequest(req, res) {
-  if(req.method !== 'GET') return res.writeHead(501).end();
+  if(req.method !== 'GET') return serveHomepage();
   var pathname = new URL(req.url, 'http://localhost').pathname;
   fs.stat(path.join("static", pathname), (err, stat) => {
   // TODO: Serve file or list directory
