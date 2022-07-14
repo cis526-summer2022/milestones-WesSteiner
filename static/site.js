@@ -14,12 +14,10 @@ function displayCards(data){
     display.appendChild(iDiv);
     iDiv.appendChild(map);
     iDiv.appendChild(name);
-    var btn = document.createElement("button");
-    btn.innerHTML = "Requests";
-    btn.onclick = function () {
-      window.location.href = "/box-locations/"+id;
-    };
-    iDiv.appendChild(btn);
+    var a = document.createElement("a");
+    a.innerHTML = "Requests";
+    a.href = "/box-locations/"+id;     
+    iDiv.appendChild(a);
   } 
 }
 

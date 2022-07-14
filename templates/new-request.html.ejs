@@ -1,11 +1,8 @@
-<h2>New Request</h2>
-<form method="POST" action="/posts">
+<h2>Make A Request</h2>
+    <form method="POST" action="/box-locations/<%= id %>/requests">
   
-  <label>Title</label>
-  <input type="text" name="title" required/>
+      <label>Type it here.</label>
+      <input type="text" name="request" required/>
   
-  <label>Content</label>
-  <textarea name="content" rows="10" required></textarea>
-  
-  <input type="submit" value="Post"/>
-</form>
+      <input type="submit" value="Request"/>
+    </form>
