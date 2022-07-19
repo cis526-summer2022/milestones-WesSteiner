@@ -14,7 +14,7 @@ function serveHomepage(req, res) {
   var requestHtml = templates['request.html'](request);
   var listHtml = templates['request-list.html']( {requests: requests} );
   var id = request.id;
-  var html = templates['layout.html']({request: requestHtml, list: listHtml, title: id});
+  var html = templates['layout.html']({request: requestHtml, list: listHtml, title: id, user: req.session.user});
   
   // Serve the HTML
   res.setHeader('Content-Type', "text/html");

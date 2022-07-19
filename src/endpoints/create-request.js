@@ -12,12 +12,13 @@ function createRequest(req, res) {
   const id = parseInt(req.params.id, 10);
   var box = db.prepare("SELECT * FROM boxes WHERE id = ?").get(id);
   var box_id = box.id;
+  var user_id = 5;
   var request = req.body.request;
   var fulfilled = 0;
 
   request = sanitizeHTML(request);
 
-    var info = db.prepare("INSERT INTO REQUESTS (box_id, request, fulfilled) VALUES (?, ?, ?)").run(box_id, request, fulfilled);
+    var info = db.prepare("INSERT INTO REQUESTS (box_id, user_id, request, fulfilled) VALUES (?, ?, ?, ?)").run(box_id, user_id, request, fulfilled);
 
     if(info.changes != 1) return serveError(req, res, 500, `Unable to insert ${box_id}, ${request}, ${fulfilled} into requests`);
     res.writeHead(302, {"Location": `.`}).end();

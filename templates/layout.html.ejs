@@ -1,15 +1,31 @@
 <!doctype HTML>
 <html>
   <head>
-    <title>Box At <%= title %></title>
-    <link type="text/css" rel="stylesheet" href="/site.css">
+    <title><%= title %></title>
+    <link href="site.css" rel="stylesheet" type="text/css"/>
+    <link rel="icon" href="favicon-64x64.png" size="64x64">
   </head>
-  <body>   
-    <h1>Box At <%= title %></h1>
-    <div class="content">
+  <body> 
+    <header>
+      <% if(locals.user) { %>
+        Welcome <%= user.username %>!
+        <% if(locals.user.role === "Author") { %>
+          <a href="/box-locations">Create a Post</a>
+        <% } %>
+        <a href="/signout">Sign Out</a>
+      <% } else { %>
+        <a href="/signin">Sign In</a> 
+        or
+        <a href="/signup">Sign Up</a>
+      <% } %>
+    </header>
+
+    <h1><%= title %></h1>
+
+    <div id="view">
       <%- request %>
       <%- list %>
-    </div>
-    <%- form %>      
+      <%- form %>           
+    </div>            
   </body>
 </html>

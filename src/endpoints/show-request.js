@@ -15,9 +15,9 @@ function showRequest(req, res) {
 
     var requestHtml = templates['request.html'](box);
     var listHtml = templates['request-list.html']({requests: requests});
-    var newHtml = templates['new-request.html'](box);
+    var newHtml = templates['new-request.html']({box: box, user: req.session.user});
     var title = box.name;
-    var html = templates['layout.html']({request: requestHtml, list: listHtml, form: newHtml, title: title});
+    var html = templates['layout.html']({request: requestHtml, list: listHtml, form: newHtml, title: title, user: req.session.user});
 
     res.setHeader("Content-Type", "text/html");
     res.setHeader("Content-Length", html.length);

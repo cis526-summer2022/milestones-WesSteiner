@@ -1,8 +1,13 @@
 <h2>Make A Request</h2>
-    <form method="POST" action="/box-locations/<%= id %>/requests">
-  
-      <label>Type it here.</label>
-      <input type="text" name="request" required/>
-  
-      <input type="submit" value="Request"/>
+    <form method="POST" action="/box-locations/<%= box.id %>/requests">
+
+      <% if(locals.user) { %>
+        <label>Type it here.</label>
+
+        <input type="text" name="request" required/>
+
+        <input type="submit" value="Request"/>
+      <% } else { %>
+        Please <a href="/signup">Sign Up</a> to make requests.
+      <% } %>
     </form>
