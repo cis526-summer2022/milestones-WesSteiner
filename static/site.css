@@ -1,0 +1,53 @@
+#view > div {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px darkgray;
+}
+
+#view > div > p {
+  text-align: center;
+}
+
+#view img {
+  width: 100%;
+}
+
+#view {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1050px) {
+  #view {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  #view {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  #view {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+h1{
+  text-align: center;
+}
+
+header {
+  min-width: 450px;
+  max-width: 700px;
+  text-align: right;
+  color: black;
+}
+
+header a, header a:hover {
+  color: purple;
+}
