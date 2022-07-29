@@ -29,7 +29,7 @@ function createUser(req, res) {
   bcrypt.hash(password, passes, (err, hash) => {
     if(err) return serveError(req, res, 500, err);
     // Save user to the database
-    var info = db.prepare("INSERT INTO users (email, username, cryptedPassword) VALUES (?, ?, ?);").run(email, username, hash);
+    var info = db.prepare("INSERT INTO users (email, username, cryptedPassword, role_id, admin) VALUES (?, ?, ?, ?, ?);").run(email, username, hash, 0, 0);
     if(info.changes === 1){
       var user = db.prepare("SELECT * FROM users WHERE username = ?").get(username);
       success(req, res, user);

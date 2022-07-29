@@ -16,7 +16,8 @@ function createSession(req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-  var user = db.prepare("SELECT * FROM users WHERE username = ?").get(username);
+  var users = db.prepare("SELECT * FROM users WHERE username = ?").all(username);
+  var user = users[0];
   if(!user) return failure(req, res, "Username/Password not found.  Please try again.");
 
   bcrypt.compare(password, user.cryptedPassword, (err, result) => {

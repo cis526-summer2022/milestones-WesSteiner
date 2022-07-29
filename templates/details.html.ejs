@@ -1,0 +1,23 @@
+<nav>
+  <h2>Details</h2>
+
+  <label>Processing</label>
+  <ul>  
+  <% requests.forEach((request) => { %>
+    <% if(request.fulfilled != 1) { %>        
+        <li>       
+          <a href="/box-locations/<%= request.box_id %>/requests/<%= request.id %>/fulfill"><%= request.request %></a>
+    <% }%>
+  <% }); %> 
+  </ul>
+
+  <label>Fulfilled</label>
+  <ul>    
+    <% requests.forEach((request) => { %>
+      <% if(request.fulfilled != 0) { %>        
+        <li>       
+          <a href="/box-locations/<%= request.box_id %>/requests/<%= request.id %>/fulfill"><%= request.request %></a>
+      <% }%>
+    <% }); %>
+  </ul>
+</nav>

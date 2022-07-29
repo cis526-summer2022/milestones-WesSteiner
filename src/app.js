@@ -11,6 +11,14 @@ const newSession = require('./endpoints/new-session');
 const createSession = require('./endpoints/create-session');
 const indexHtml = require('./endpoints/index-html');
 const destroySession = require('./endpoints/destroy-session');
+const showDetails = require('./endpoints/show-details');
+const requestFulfill = require('./endpoints/request-fulfill');
+const changeFulfilled = require('./endpoints/change-fulfilled');
+const createBox = require('./endpoints/create-box');
+const newBox = require('./endpoints/new-box');
+const showUsers = require('./endpoints/show-users');
+const editUser = require('./endpoints/edit-user');
+const changeUser = require('./endpoints/change-user');
 
 const parseBody = require('./middleware/parse-body');
 const basicAuth = require('./middleware/basic-auth');
@@ -27,10 +35,18 @@ var app = express();
 app.use(loadSession);
 
 app.post('/box-locations/:id/requests', parseBody, createRequest);
+app.post('/box-locations/:box_id/requests/:request_id/fulfilled', parseBody, changeFulfilled);
+app.post('/box-locations/create', authOnly, parseBody, createBox);
+app.post('/users/:user_id', authOnly, parseBody, changeUser);
 
-app.get('/box-locations/new', authOnly, newRequest);
+app.get('/box-details/:id', showDetails);
+
+app.get('/box-locations/:box_id/requests/:request_id/fulfill', requestFulfill);
+app.get('/box-locations/new', authOnly, newBox);
 app.get('/box-locations/:id', showRequest);
 app.get('/box-locations', boxLocations);
+app.get('/users/:user_id', authOnly, editUser);
+app.get('/users', authOnly, showUsers);
 app.get('/', indexHtml);
 
 app.get('/signout', destroySession);

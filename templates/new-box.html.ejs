@@ -1,0 +1,18 @@
+<h2>Make A Box</h2>
+    <form method="POST" action="/box-locations/create">
+
+      <% if(locals.user) { %>
+        <label>Name:</label>
+        <input type="text" name="name" required/><br>
+
+        <label>Latitude:</label>
+        <input type="text" name="lat" required/><br>
+
+        <label>Longitude:</label>
+        <input type="text" name="lng" required/><br>
+
+        <input type="submit" value="New Box"/>
+      <% } else { %>
+        Please <a href="/signup">Sign Up</a> to make requests.
+      <% } %>
+    </form>

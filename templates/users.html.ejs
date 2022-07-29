@@ -1,0 +1,28 @@
+<div>
+  <table>
+    <tr>
+      <th>Username</th>
+    </tr>
+    <tr>
+      <th>Email</th>
+    </tr>
+    <tr>
+      <th>Admin</th>
+    </tr>
+  </table>
+</div>
+<% users.forEach((user) => { %>
+<div>  
+  <table>
+    <tr>     
+      <th><a href="/users/<%= user.id %>"><%= user.username %></a></th>      
+    </tr>   
+    <tr>            
+      <td><%= user.email %></td>            
+    </tr>
+    <tr>         
+      <td><%= user.admin %></td>      
+    </tr>     
+  </table>
+</div>
+<% }); %>

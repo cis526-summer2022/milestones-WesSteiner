@@ -1,0 +1,20 @@
+ <h1> <%= request.request %> </h1>
+<form method="POST" action="/box-locations/<%= request.box_id %>/requests/<%= request.id %>/fulfilled">
+  <% if(request.fulfilled != 0) { %>
+    <h2>Fulfilled</h2>
+  <% } else { %>
+    <h2>Unfulfilled</h2>
+  <% } %>
+
+  <% if(locals.user) { %>
+        <label>Type "I have fulfilled the request" here to fulfill request.</label>
+
+        <input type="text" name="fulfill"/>
+
+        <label> I have fulfilled the request </label>
+
+        <input type="submit" value="Fulfill"/>
+      <% } else { %>
+        Please <a href="/signup">Sign Up</a> to fulfill requests.
+      <% } %>
+</form>

@@ -1,0 +1,32 @@
+<div>
+  <table>
+    <tr>
+      <th>Username: <%= user.username %></th>
+    </tr>
+    <tr>
+      <th>Email: <%= user.email %></th>
+    </tr>
+    <tr>
+      <th>Admin Code: <%= user.admin %></th>
+    </tr>
+  </table>
+</div>
+
+<h2>Edit User Information</h2>
+    <form method="POST" action="/users/<%= user.id %>">
+
+      <% if(locals.user) { %>
+        <label>Username: </label>
+        <input type="text" name="username" required/><br>
+
+        <label>Email: </label>
+        <input type="text" name="email" required/><br>
+
+        <label>Admin Control 0/1: </label>
+        <input type="text" name="admin" required/><br>
+
+        <input type="submit" value="Edit User"/>
+      <% } else { %>
+        Please <a href="/signup">Sign Up</a> to make requests.
+      <% } %>
+    </form>

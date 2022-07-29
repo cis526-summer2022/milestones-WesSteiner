@@ -3,7 +3,7 @@
   <ul>
   <% requests.forEach((request) => { %>
     <li>
-        <%= request.request %>
+        <a href="/box-locations/<%= request.box_id %>/requests/<%= request.id %>/fulfill"><%= request.request %></a>
   <% }); %>
   </ul>
 </nav>

@@ -9,9 +9,14 @@
     <header>
       <% if(locals.user) { %>
         Welcome <%= user.username %>!
-        <% if(locals.user.role === "Author") { %>
-          <a href="/box-locations">Create a Post</a>
+        <% if(locals.user.admin != 0) { %>
+          Admin Access
+          <a href="/box-locations/new">Add Box</a>
+          and
+          <a href="/users">Manage Users</a>
+          or
         <% } %>
+        
         <a href="/signout">Sign Out</a>
       <% } else { %>
         <a href="/signin">Sign In</a> 

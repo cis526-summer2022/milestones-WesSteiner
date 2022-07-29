@@ -12,12 +12,20 @@ function displayCards(data){
     name.textContent = json_data.name;
     var iDiv = document.createElement('div');
     display.appendChild(iDiv);
+
     iDiv.appendChild(map);
+
+    var b = document.createElement("a");
+    b.innerHTML = "Details";
+    b.href = "/box-details/"+id;     
+    iDiv.appendChild(b);
+
     iDiv.appendChild(name);
+
     var a = document.createElement("a");
     a.innerHTML = "Requests";
     a.href = "/box-locations/"+id;     
-    iDiv.appendChild(a);
+    iDiv.appendChild(a);    
   } 
 }
 
